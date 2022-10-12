@@ -1,0 +1,39 @@
+<app-header></app-header>
+<br>
+<style>
+@font-face { font-family: vag_rounded_bold-webfont; src: url('assets/fonts/vag_rounded_thin-webfont.ttf'); } 
+    h1 {
+       font-family: vag_rounded_bold-webfont
+    }
+    p {
+       font-family: vag_rounded_bold-webfont
+    }
+    .container{
+        font-family: vag_rounded_bold-webfont
+    }
+</style>
+<div class="container">
+<h1> User  Management </h1> 
+<p>Please find all Utility Aid users below. You can edit these or delete them by using the links in each row.</p>
+<div class="container home">
+    <table>
+        <thead>
+        <tr>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        </thead>
+        <tbody>     
+        <tr *ngFor="let user of managerlist; index as i">
+            <td>{{user.username}}</td>
+            <td>{{user.email}}</td>
+            <td><button class="btndlt" (click)="editManager(user._id)">Edit</button></td>
+            <td><button class="btndlt" (click)="deleteManager(user._id)">Delete</button></td>
+        </tr>
+        </tbody>
+    </table>
+    <br><br><br>
+</div>
+</div>

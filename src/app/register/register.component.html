@@ -1,0 +1,80 @@
+<app-header></app-header>
+<br>
+<style>
+    @font-face { font-family: vag_rounded_bold-webfont; src: url('assets/fonts/vag_rounded_thin-webfont.ttf'); } 
+        h1 {
+           font-family: vag_rounded_bold-webfont
+        }
+        p {
+           font-family: vag_rounded_bold-webfont
+        }
+        label
+        {
+            font-family: vag_rounded_bold-webfont
+        }
+    </style>
+<div class="container">
+    <h1>
+        Create a New Account
+    </h1>
+    <p>Use the form below to create a new account.</p>
+    <p>Passwords are required to be a minimum of 6 characters in length.</p>
+</div>
+<div class="container home">
+
+    <div class="accountInfo" style="padding-bottom: 100px">
+        <form [formGroup]="registerform">
+            <fieldset class="login">
+                <legend>Account Information</legend>
+                <div>
+                    <label>Type:</label>
+                    <select name="type" formControlName="type" id="type" style="height: 24px; width:50%; margin-bottom: 10px;" 
+                    [ngClass]="{ 'is-invalid': submitted && f.type.errors }">
+                        <option value="0">--Please Select--</option>
+                        <option value="1">Client (Housing Association)</option>
+                        <option value="2">Utility Aid User</option>
+                        <option value="3">Utility Aid Manager</option>
+                    </select>
+                    <div *ngIf="submitted && f.type.errors">
+                        <div class="error" *ngIf="f.type.errors.required">Please Select Type</div>
+                    </div>
+                </div>
+                <div>
+                    <label>Username:</label>
+                    <input name="username" formControlName="username" type="text" id="username" class="textEntry" [ngClass]="{ 'is-invalid': submitted && f.username.errors }"> *
+                    <div *ngIf="submitted && f.username.errors">
+                        <div class="error" *ngIf="f.username.errors.required">Username is required</div>
+                    </div>
+                </div>
+                <div>
+                    <label>E-mail:</label>
+                    <input name="email" formControlName="email" type="text" id="email" class="textEntry" [ngClass]="{ 'is-invalid': submitted && f.email.errors }"> *
+                    <div *ngIf="submitted && f.email.errors">
+                        <div class="error" *ngIf="f.email.errors.required">Email is required</div>
+                     </div>
+                </div>
+                <div>
+                    <label>Password:</label>
+                    <input name="password" formControlName="password" type="password" id="password" class="textEntry" [ngClass]="{ 'is-invalid': submitted && f.password.errors }"> *
+                    <div *ngIf="submitted && f.password.errors">
+                        <div class="error" *ngIf="f.password.errors.required">Password is required</div>
+                        <div class="error" *ngIf="f.password.errors.minlength">you have to enter at least 6 digit!</div>
+                     </div>
+                </div>
+                <div>
+                    <label>Confirm Password:</label>
+                    <input name="confirmPassword" formControlName="Confirmpassword" type="password" id="confirmPassword" class="textEntry" [ngClass]="{ 'is-invalid': submitted && f.Confirmpassword.errors }"> *
+                    <div *ngIf="submitted && f.Confirmpassword.errors">
+                        <div class="error" *ngIf="f.Confirmpassword.errors.required">Confirm Password is required</div>
+                        <div class="error" *ngIf="f.Confirmpassword.errors.minlength">you have to enter at least 6 digit!</div>
+                        <div class="error" *ngIf="f.Confirmpassword.errors.ConfirmedValidator">you have to tgthenter at least 6 digit!</div>
+                     </div>
+                </div>
+            </fieldset>
+            <p class="submitButton">
+                <input type="submit" value="Save Details"
+                id="submit" class="pull-right" (click)="addDetails(registerform);">
+            </p>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,49 @@
+div.accountInfo {
+    width: 42%;
+}
+
+
+fieldset {
+    margin: 2em 0px;
+    padding: 1em;
+    border: 1px solid #ccc;
+}
+
+legend {
+    font-size: 22px;
+    font-weight: 400;
+    padding: 2px 4px 8px 4px;
+    width: auto;
+    border: none;
+    margin-bottom: 10px;
+    margin-top: 0px;
+}
+
+fieldset label {
+    display: block;
+    font-weight: normal;
+}
+
+input.textEntry {
+    width: 320px;
+    border: 1px solid #ccc;
+    height: 25px;
+    margin-bottom: 10px;
+}
+
+h1{
+    color: #2a2a2a;
+    font-weight: 700;
+    font-size: 1.8em;
+}
+p{
+    font-size: 1.1em;
+}
+label{
+    margin-bottom: 10px;
+}
+.error {
+    color: red;
+    text-decoration: underline;
+    /* font-size: 20px; */
+  }

@@ -1,0 +1,381 @@
+
+<div class="container">
+<form [formGroup]="addPropertyForm">
+    <div class="row backColor">
+        <div class="col-md-2">Property Address *
+            <div *ngIf="submitted && f.propertyAddress.errors">
+                <div class="error" *ngIf="f.propertyAddress.errors.required">Mandatory!</div>
+            </div>
+        </div>
+        <div class="col-md-10">
+            <textarea rows="4" cols="100" name="propertyAddress" formControlName="propertyAddress"
+                id="propertyAddress" class="textEntry"></textarea>
+        </div>
+
+        <div class="col-md-2"> Property Postcode *
+            <div *ngIf="submitted && f.propertyPostCode.errors">
+                <div class="error" *ngIf="f.propertyPostCode.errors.required">Mandatory!</div>
+            </div>
+        </div>
+       <div class="col-md-10">
+            <input name="propertyPostCode" formControlName="propertyPostCode" type="text"
+                id="propertyPostCode" class="textEntry" value="">
+        </div>
+    
+        
+
+          <!--
+        <div class="col-md-2 date">Void Date *
+            <div *ngIf="submitted && f.voiddate.errors">
+                <div class="error" *ngIf="f.voiddate.errors.required">Mandatory!</div>
+            </div>
+        </div>
+
+        <div class="col-md-10"><input name="voiddate" formControlName="voiddate" type="date"
+                id="voiddate" value="" class="textEntry">
+        </div>
+
+        <div class="col-md-2"> Association
+            <div *ngIf="submitted && f.association.errors">
+                <div class="error" *ngIf="f.association.errors.required">Mandatory!</div>
+            </div>
+        </div>
+        <div class="col-md-10">
+            <select #ggg (change)="selectassociation($event)" name="association" id="association"
+                formControlName="association" class="form-control">
+                <option value="0" style="padding-bottom: 10px;">Any</option>
+                <option [value]="association.association"
+                    *ngFor="let association of associationlist">{{association.association}}</option>
+            </select>
+        </div>
+        <div class="col-md-2" style="margin-top: 1rem;">
+            Cost Centre/UPRN *
+            <div *ngIf="submitted && f.costCentre.errors">
+                <div class="error" *ngIf="f.costCentre.errors.required">Mandatory!</div>
+            </div>
+        </div>
+        <div class="col-md-10" style="margin-top: 1rem;">
+            <input name="costCentre" type="text" formControlName="costCentre" id="costCentre"
+                class="textEntry" value="">
+        </div> -->
+    </div>
+    <!-- *********************************************************************** -->
+    <!-- <div class="row">
+        <div class="col-md-6">
+            <h4>Electric Info
+            </h4>
+            <div class="row backColor">
+                <div class="col-md-5">
+                    Meter Type *
+                    <div *ngIf="submitted && f.electricMeterType.errors">
+                        <div class="error" *ngIf="f.electricMeterType.errors.required">Mandatory!
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-7">
+                    <select class="form-control" formControlName="electricMeterType" [(ngModel)]="selectVal">
+                        <option value="-Please Select">-Please Select--</option>
+                        <option value="aaa">Prepay Key</option>
+                        <option value="aaa">Billed</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row backColor readOneGas" *ngIf="selectVal == 'aaa'">
+                <div class="col-md-5">
+                    Meter Read *
+                    <div *ngIf="submitted && f.readOneGas.errors">
+                        <div class="error" *ngIf="f.readOneGas.errors.required">Mandatory!</div>
+                    </div>
+                </div>
+                <div class="col-md-7">
+                    <input class="form-control" name="readOneGas" formControlName="readOneGas" type="text"
+                        id="readOneGas" class="textEntry" value="">
+                </div>
+            </div>
+            <div class="row backColor">
+                <div class="col-md-5">
+                    Meter Serial Number *
+                    <div *ngIf="submitted && f.electricMeterSrNo.errors">
+                        <div class="error" *ngIf="f.electricMeterSrNo.errors.required">Mandatory!
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-7">
+                    <input class="form-control" name="electricMeterSrNo" formControlName="electricMeterSrNo" type="text"
+                        id="electricMeterSrNo" class="textEntry" value="">
+                </div>
+            </div>
+            <div class="row backColor">
+                <div class="col-md-5">
+                    Card/Key *
+                    <div *ngIf="submitted && f.electricCard.errors">
+                        <div class="error" *ngIf="f.electricCard.errors.required">Mandatory!</div>
+                    </div>
+                </div>
+                <div class="col-md-7">
+
+                    <select class="form-control" name="electricCard" id="electricCard" formControlName="electricCard">
+                        <option value="0">--Please Select--</option>
+                        <option value="Present">Present</option>
+                        <option value="Missing">Missing</option>
+                        <option value="Not Applicable">Not Applicable</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row backColor">
+                <div class="col-md-5">
+                    Is the account/meter *
+                    <div *ngIf="submitted && f.inType.errors">
+                        <div class="error" *ngIf="f.inType.errors.required">Mandatory!</div>
+                    </div>
+                </div>
+                <div class="col-md-7">
+                    <select class="form-control" name="inType" id="inType" formControlName="inType"
+                        [(ngModel)]="selectvalue">
+                        <option value="0">--Please Select--</option>
+                        <option value="Not Applicable">Not Applicable</option>
+                        <option value="In Credit">In Credit</option>
+                        <option value="In Debt">In Debt</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row backColor gasDebtOutstanding" *ngIf="selectvalue == 'In Debt'">
+                <div class="col-md-5">
+                    Debt Outstanding *
+                    <span class="error">Mandatory!</span>
+                    <div *ngIf="submitted && f.gasDebtOutstanding.errors">
+                        <div class="error" *ngIf="f.gasDebtOutstanding.errors.required">Mandatory!
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-7"><input class="form-control" name="gasDebtOutstanding"
+                        formControlName="gasDebtOutstanding" type="text" id="gasDebtOutstanding"
+                        value="" class="textEntry">
+                </div>
+            </div>
+            <div class="row backColor gasDebtOutstanding">
+                <div class="col-md-5">
+                    Comment
+                </div>
+                <div class="col-md-7"><textarea class="form-control" name="gasDebtOutstanding" type="text"
+                        id="gasDebtOutstanding" value="" class="textEntry"
+                        style="width: 270px; height: 80px;"></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <h4>Gas Info
+            </h4>
+            <div class="row backColor">
+                <div class="col-md-5">
+                    <label for="isGasPresent"> Is there gas present?</label>
+                </div>
+
+                <div class="col-md-4">
+                    <input type="checkbox" id="subscribe" (click)="myFunction()" />
+                </div>
+
+                <div id="myDIV" class="Gas" style="display: none;">
+                    <div class="row backColor">
+                        <div class="col-md-5">
+                            Meter Type *
+                            <div *ngIf="submitted && f.gasMeterType.errors">
+                                <div class="error" *ngIf="f.gasMeterType.errors.required">Mandatory!
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <select name="gasMeterType" id="gasMeterType"
+                                formControlName="gasMeterType" [(ngModel)]="selectmeterTypeVal">
+                                <option value="0">--Please Select--</option>
+                                <option value="val">Prepay Card</option>
+                                <option value="val">Billed</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row backColor readOneGas" *ngIf="selectmeterTypeVal == 'val'">
+                        <div class="col-md-5">
+                            Meter Read *
+                            <div *ngIf="submitted && f.readOneGas.errors">
+                                <div class="error" *ngIf="f.readOneGas.errors.required">Mandatory!
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <input name="readOneGas" formControlName="readOneGas" type="text"
+                                id="readOneGas" class="textEntry" value="">
+                        </div>
+                    </div>
+                    <div class="row backColor">
+                        <div class="col-md-5">
+                            Meter Serial Number *
+                            <div *ngIf="submitted && f.gasMeterSrNo.errors">
+                                <div class="error" *ngIf="f.gasMeterSrNo.errors.required">Mandatory!
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6"><input formControlName="gasMeterSrNo"
+                                name="gasMeterSrNo" type="text" id="gasMeterSrNo" value=""
+                                class="textEntry">
+                        </div>
+                    </div>
+                    <div class="row backColor">
+                        <div class="col-md-5">
+                            Card/Key *
+                            <div *ngIf="submitted && f.gasCard.errors">
+                                <div class="error" *ngIf="f.gasCard.errors.required">Mandatory!
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6"><select formControlName="gasCard" name="gasCard"
+                                id="gasCard">
+                                <option value="0">--Please Select--</option>
+                                <option value="Present">Present</option>
+                                <option value="Missing">Missing</option>
+                                <option value="Not Applicable">Not Applicable</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row backColor">
+                        <div class="col-md-5">
+                            Is the account/meter *
+                            <div *ngIf="submitted && f.gasInType.errors">
+                                <div class="error" *ngIf="f.gasInType.errors.required">Mandatory!
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <select name="gasInType" id="gasInType" formControlName="gasInType"
+                                [(ngModel)]="selectdebtvalue">
+                                <option value="0">--Please Select--</option>
+                                <option value="Not Applicable">Not Applicable</option>
+                                <option value="In Credit">In Credit</option>
+                                <option value="In Debt">In Debt</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row backColor gasDebtOutstanding" *ngIf="selectdebtvalue == 'In Debt'">
+                        <div class="col-md-5">
+                            Debt Outstanding *
+                            <div *ngIf="submitted && f.gasDebtOutstanding.errors">
+                                <div class="error" *ngIf="f.gasDebtOutstanding.errors.required">
+                                Mandatory!</div>
+                            </div>
+                        </div>
+                        <div class="col-md-6"><input name="gasDebtOutstanding"
+                                formControlName="gasDebtOutstanding" type="text"
+                                id="gasDebtOutstanding" value="" class="textEntry">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><br> -->
+    <!-- *************************************************************************** -->
+    <!-- <div class="row backColor">
+        <button class='uploadPropertyImage' class='btn btn-default'>Upload Files</button>
+<div id='myId' class='dropzone'></div>
+        <div class="col-md-2">
+            Pictures of Meter read
+        </div>
+        <div class="col-sm-6">
+            <div class="row">
+                <div class="col-md-12">
+                    <a style="cursor: pointer;" type="file" class="btn btn-default showDropZone">Add
+                        Image</a>
+                    <div class="drop">
+                        <ngx-dropzone (change)="onSelect($event)">
+                            <ngx-dropzone-label>Drop it, baby!</ngx-dropzone-label>
+                            <ngx-dropzone-preview *ngFor="let f of files" [removable]="true"
+                                (removed)="onRemove(f)">
+                                <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+                            </ngx-dropzone-preview>
+                        </ngx-dropzone>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-12 imgDiv" style="margin-top: 10px;">
+        </div>
+    </div><br> -->
+
+    <!-- <div class="row backColor">
+        <div class="col-sm-2">
+            Pictures of Meter read
+        </div>
+        <div class="col-md-10">
+            <a style="cursor: pointer; " class="btn btn-default showDropZone" (click)="addImg()">Add
+                Image</a>
+        </div> -->
+        <!-- <div class="col-sm-10">
+            <div class="col-sm-12" id="dropZoneShow" style="display: block">
+                <ngx-dropzone (change)="onSelect($event)">
+                    <ngx-dropzone-label>Drop it, baby!</ngx-dropzone-label>
+                    <ngx-dropzone-preview *ngFor="let f of files" [removable]="true"
+                        (removed)="onRemove(f)">
+                        <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+                    </ngx-dropzone-preview>
+                </ngx-dropzone>
+                <input type='file' (change)="onSelectFile($event)">
+            </div>
+
+
+            <div class="row" style="background-color: #FFFFFF; padding: 20px;">
+                <li *ngFor="let f of files; index as i" style="padding: 10px;">
+                    <img [src]="getImageFromFile(i)" height="100">
+                    <a style="cursor: pointer; " class="cancelDropZone"
+                        (click)="cancelFun()">View</a>
+
+                    <a style="cursor: pointer; " class="cancelDropZone"
+                        (click)="onRemove(f)">Delete</a>
+                </li>
+
+            </div>
+            <div class="col-md-12">
+                <a style="cursor: pointer; " class="cancelDropZone" (click)="cancelFun()">Cancel</a>
+            </div>
+            <div class="col-md-12">
+                <h2 class="upload-message">Upload in progress...</h2>
+            </div>
+        </div> -->
+<!-- 
+        <div class="col-sm-12 imgDiv" style="margin-top: 10px;">
+            <img src="<%= response.propertyImage %>" style="width: 100%;height:auto;" srcset="">
+        </div> -->
+
+    <!-- </div> -->
+
+
+    <!-- <br> -->
+    <!-- ********************************************************************* -->
+    <!-- <div class="row backColor">
+        <div class="col-md-2">
+            Name
+            <div *ngIf="submitted && f.previousOwnerName.errors">
+                <div class="error" *ngIf="f.previousOwnerName.errors.required">Mandatory!</div>
+            </div>
+        </div>
+        <div class="col-md-10"><input name="previousOwnerName" formControlName="previousOwnerName"
+                type="text" id="previousOwnerName" value="" class="textEntry">
+        </div>
+    </div>
+    <div class="row backColor">
+        <div class="col-md-2">
+            Forwarding Address (if known)
+        </div>
+        <div class="col-md-10"> <textarea rows="4" cols="100" name="forwardingAddress"
+                id="forwardingAddress" class="textEntry"></textarea></div>
+    </div>
+    <div class="row backColor">
+        <div class="col-md-4">
+            <label for="sectionFinished">Section Finished?</label>
+        </div>
+        <div class="col-md-6">
+            <input name="sectionFinished" type="checkbox" id="sectionFinished">
+        </div>
+    </div> -->
+
+    <input type="submit" (click)="onSubmit()" value="Save" class="btnSave">
+</form>
+</div>

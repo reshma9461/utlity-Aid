@@ -1,0 +1,116 @@
+<style>
+  @font-face { font-family: vag_rounded_bold-webfont; src: url('assets/fonts/vag_rounded_thin-webfont.ttf'); } 
+  ul>li>a {
+     font-family: vag_rounded_bold-webfont    
+  }
+  .dropdown-menu > li > a {
+    font-family: vag_rounded_bold-webfont;
+}
+</style>
+
+<div class="container">
+    <img src="assets/images/header.png" style="width:100%" />
+</div>
+<div class="container" style="padding-bottom: 0px;font-size: 20px;margin-top: 10px;color: #3496c1;">
+  <div class=" pull-right1">Welcome <span class="name" style="font-weight: bold;font-size: 18px">{{sessionStorage.getItem('username')}}</span> 
+    <a style="text-decoration: underline;color: black" routerLink="/login">[Log Out]</a>
+  </div>
+</div>
+<br>
+
+<nav class="navbar navbar-expand-md navbar-dark" style="display: block; height: 4px;">
+    <button class="navbar-toggler" data-toggle="collapse" data-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>  
+    <div class="container">
+      <ul class="container nav navbar-nav navbar-left mt-1">
+        <li data-target="#collapsibleNavbar">
+          <a routerLink="#">Home</a>
+        </li>
+        <li class="dropdown-open">
+            <a class="dropdown-toggle" style="cursor: pointer;" data-toggle="dropdown">Property Management
+            </a>
+            <ul class="dropdown-menu">
+              <li data-toggle="collapse" data-target="#collapsibleNavbar">
+                <a routerLink="/propertylisting" routerLinkActive="active">Property Listing</a>
+              </li>
+              <li data-toggle="collapse" data-target="#collapsibleNavbar">
+                <a routerLink="/addproperty">Add Void Property</a>
+              </li>
+            </ul>
+          </li>
+          <li *ngIf="currentUserType==0 || currentUserType==3" class="dropdown-open">
+            <a class="dropdown-toggle" style="cursor: pointer;" data-toggle="dropdown">User/Client/Manager
+                Management
+            </a>
+            <ul class="dropdown-menu">           
+              <li data-toggle="collapse" data-target="#collapsibleNavbar">
+                <a routerLink="/users">View All Users</a>
+              </li>
+              <li data-toggle="collapse" data-target="#collapsibleNavbar">
+                <a routerLink="/clients">View All Clients</a>
+              </li>
+              <li data-toggle="collapse" data-target="#collapsibleNavbar">
+                <a routerLink="/managers">View All Managers</a>
+              </li>
+              <li data-toggle="collapse" data-target="#collapsibleNavbar">
+                <a routerLink="/association">Add Association</a>
+              </li>
+              <li data-toggle="collapse" data-target="#collapsibleNavbar">
+                <a routerLink="/register">Add New User/Client/Manager</a>
+              </li>
+            </ul>
+          </li>
+        <li data-target="#collapsibleNavbar">
+          <a routerLink="/changepassword">Change Password</a>
+        </li>
+      </ul>
+    </div>
+  
+    <!-- ======== mobile navbar =============== -->
+  
+    <div class="collapse navbar-collapse mobileView" id="collapsibleNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li data-toggle="collapse" data-target="#collapsibleNavbar">
+          <a routerLink="why-ua">Home</a>
+        </li>
+        <li class="dropdown-open">
+          <a class="dropdown-toggle" style="cursor: pointer;" data-toggle="dropdown">Property Management
+          </a>
+          <ul class="dropdown-menu">
+            <li data-toggle="collapse" data-target="#collapsibleNavbar">
+              <a routerLink="/propertylisting">Property Listing</a>
+            </li>
+            <li data-toggle="collapse" data-target="#collapsibleNavbar">
+              <a routerLink="/addproperty">Add Void Property</a>
+            </li>
+          </ul>
+        </li>
+        <li class="dropdown-open" >
+            <a class="dropdown-toggle" style="cursor: pointer;" data-toggle="dropdown">User/Client/Manager
+                Management
+            </a>
+            <ul class="dropdown-menu">          
+              <li data-toggle="collapse" data-target="#collapsibleNavbar">
+                <a routerLink="/user">View All Users</a>
+              </li>
+              <li data-toggle="collapse" data-target="#collapsibleNavbar">
+                <a routerLink="/clients">View All Clients</a>
+              </li>
+              <li data-toggle="collapse" data-target="#collapsibleNavbar">
+                <a routerLink="/managers">View All Managers</a>
+              </li>
+              <li data-toggle="collapse" data-target="#collapsibleNavbar">
+                <a routerLink="/association">Add Association</a>
+              </li>
+              <li data-toggle="collapse" data-target="#collapsibleNavbar">
+                <a routerLink="/register">Add New User/Client/Manager</a>
+              </li>
+            </ul>
+          </li> 
+        <li data-toggle="collapse" data-target="#collapsibleNavbar">
+          <a routerLink="/changepassword">Change Password</a>
+        </li>
+      </ul>
+    </div>
+  </nav>

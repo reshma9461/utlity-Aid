@@ -1,0 +1,81 @@
+h1 {
+    color: #2a2a2a;
+    font-weight: 700;
+    font-size: 1.8em;
+}
+
+h2 {
+    color: #2a2a2a;
+    font-weight: 700;
+    font-size: 2.0em;
+}
+
+fieldset {
+    width: 40%;
+    margin: 2em 0px;
+    padding: 1em;
+    border: 1px solid #ccc;
+    padding-bottom: 30px;
+}
+
+legend {
+    font-size: 17px;
+    font-weight: 600;
+    padding: 2px 4px 8px 4px;
+    width: auto;;
+    border: none;
+    margin-bottom: 10px;
+    margin-top: 0px;
+}
+
+fieldset label {
+    display: block;
+    font-weight: normal;
+}
+
+input.textEntry {
+    width: 320px;
+    border: 1px solid #ccc;
+    height: 25px;
+}
+
+.navbar-nav > li > a {
+    color: #dde4ec;
+    margin-left: 105px;
+
+}
+/* div.accountInfo {
+    width: 80%;  
+} */
+.error {
+  color: red;
+  text-decoration: underline;
+  /* font-size: 20px; */
+}
+
+label{
+font-size: 15px;
+}
+
+.submitButton{
+margin-right: 60%;
+padding-top: 5px;
+padding-bottom: 5px;
+font-size: 12px;
+font-weight: 500;
+}
+
+p{
+font-size: 17px;
+}
+ul>li{
+font-size: 17px;
+}
+
+.invalid-feedback {
+    display: none;
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: 100%;
+    color: #dc3545;
+}

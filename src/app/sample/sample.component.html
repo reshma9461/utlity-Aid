@@ -1,0 +1,39 @@
+<div class="row backColor">
+  <!-- <button class='uploadPropertyImage' class='btn btn-default'>Upload Files</button>
+  <div id='myId' class='dropzone'></div> -->
+  <div class="col-md-2">
+      Pictures of Meter read
+  </div>
+  <div class="col-sm-6">
+      <div class="row">
+          <div class="col-md-12">
+              <a style="cursor: pointer;" class="btn btn-default showDropZone" >Add Image</a>
+          </div>
+          <div class="col-sm-12 dropZoneShow">
+              <div id="dZUpload" class="dropzone">
+                <label for="file">Choose File</label>
+                <input type="file" multiple value="select" #selectFile
+                       id="file"
+                       (change)="handleFileInput($event)">
+              </div>
+          </div>
+          <div class="col-md-12">
+            <mat-grid-list cols="4" rowHeight="1:1">
+              <mat-grid-tile *ngFor="let file of imagelist">
+                <div style="position: relative;">
+                    <img src="file.url" width="100px" height="100px">
+                </div>
+              </mat-grid-tile>
+            </mat-grid-list>
+          </div>
+          <!-- <div class="col-md-12">
+              <h2 class="upload-message">Upload in progress...</h2>
+          </div> -->
+      </div>
+  </div>
+
+  <div class="col-sm-12 imgDiv" style="margin-top: 10px;">
+      <!-- <img src="<%= response.propertyImage %>" style="width: 100%;height:auto;" srcset=""> -->
+  </div>
+
+</div>

@@ -1,0 +1,67 @@
+.navbar {
+    margin-top: 20px;
+    border: none;
+    border-radius: 0px;
+    height: 5px;
+}
+
+.navbar-inverse {
+    background-color: #18252A;
+    border-color: #18252A;
+}
+
+html, body {
+    font-size: 16px;
+    font-family: "vag_roundedregular", "Open Sans", Helvetica, Tahoma, Arial, sans-serif;
+}
+
+.navbar-nav > li > a {
+    padding: 0px 0px;
+
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: #dde4ec;
+}
+
+.navbar li {
+    padding: 0px;
+}
+
+.navbar li a {
+    padding: 12px 18px 10px;
+}
+
+.navbar li:hover {
+    background-color: #465c71;
+}
+
+.dropdown-menu {
+    background-color: #465c71;
+    color: white;
+    border: none;
+}
+
+.dropdown-menu > li > a {
+    padding: 0px 20px;
+    color: white;
+
+}
+
+.dropdown-menu > li {
+    padding: 6px 40px 0px 0px;
+    font-size: 16px;
+}
+
+.dropdown-menu > li > a:hover {
+    background-color: transparent;
+}
+
+.dropdown-menu > li:hover {
+    background-color: #3295C3;
+}
+.nav>li>a {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+}

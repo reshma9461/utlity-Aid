@@ -1,0 +1,52 @@
+<app-header></app-header>
+<style>
+    @font-face { font-family: vag_rounded_bold-webfont; src: url('assets/fonts/vag_rounded_thin-webfont.ttf'); } 
+        .container{
+            font-family: vag_rounded_bold-webfont
+        }
+    </style>
+<div class="container home">
+
+    <div class="accountInfo" style="padding-bottom: 100px">
+        <form [formGroup]="editclientform">
+            <fieldset class="login">
+                <legend>Edit Account Information</legend>
+                <div>
+                    <label>Username:</label>
+                    <input formControlName="username" [(ngModel)]="clientlist.username" type="text" id="username" class="textEntry" [ngClass]="{ 'is-invalid': submitted && f.username.errors }"
+                    > *
+                    <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                        <div *ngIf="f.username.errors.required">Password is required</div>
+                     </div>
+                </div>
+                <div>
+                    <label>E-mail:</label>
+                    <input name="email" [(ngModel)]="clientlist.email" formControlName="email" type="text" id="email" class="textEntry" [ngClass]="{ 'is-invalid': submitted && f.email.errors }"> *
+                    <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                        <div *ngIf="f.email.errors.required">Password is required</div>
+                     </div>
+                </div>
+                <div>
+                    <label>Password:</label>
+                    <input name="password" [(ngModel)]="clientlist.password" formControlName="password" type="password" id="password" class="textEntry" [ngClass]="{ 'is-invalid': submitted && f.password.errors }"> *
+                    <div class="error" *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                        <div *ngIf="f.password.errors.required">Password is required</div>
+                        <div *ngIf="f.password.errors.minlength">you have to enter at least 6 digit!</div>
+                     </div>
+                </div>
+                <div>
+                    <label>Confirm Password:</label>
+                    <input name="confirmPassword" [(ngModel)]="clientlist.password" formControlName="Confirmpassword" type="password" id="confirmPassword" class="textEntry" [ngClass]="{ 'is-invalid': submitted && f.Confirmpassword.errors }"> *
+                    <div *ngIf="submitted && f.Confirmpassword.errors" class="invalid-feedback">
+                        <div *ngIf="f.Confirmpassword.errors.required">Password is required</div>
+                        <div *ngIf="f.Confirmpassword.errors.minlength">you have to enter at least 6 digit!</div>
+                     </div>
+                </div>
+            </fieldset>
+            <p class="submitButton">
+                <input type="submit" value="Save Details"
+                id="submit" class="pull-right" (click)="editClientDetails();">
+            </p>
+        </form>
+    </div>
+</div>

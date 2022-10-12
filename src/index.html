@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <!-- <meta charset="UTF-8" /> -->
+  <meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <meta name="fragment" content="!" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale = 1.0" />
+  <title>VoidReplicaFrontend</title>
+  <base href="/">
+  <meta name="keywords"
+    content="Utility, Aid Utility, service, utility, consultancy, energy, not for profit, saving, charities, charity" />
+
+  <script src=“runtime-es2015.858f8dd898b75fe86926.js” type=“module”></script>
+  <script src=“polyfills-es2015.e954256595c973372414.js” type=“module”></script>
+  <script src=“main-es2015.63808232910db02f6170.js” type=“module”></script>
+  <script defer type="text/javascript" src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta http-equi="XUA-Compatible" content="IE=edge" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="preconnect" href="https://connect.facebook.net/en_US/fbevents.js" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css" async>
+  <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> 
+
+  <!-- <link rel="preload" href="./assets/font/vag_rounded_bold-webfont-webfont.woff2" as="font" type="font/woff2"
+    crossorigin="anonymous">
+  <link rel="preload" href="./assets/font/vag_rounded_thin-webfont.woff2" as="font" type="font/woff2"
+    crossorigin="anonymous"> -->
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" async>
+  <script defer src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+  </script>
+  </script>
+  <script defer src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+
+  <script type="text/javascript" defer src="https://connect.facebook.net/en_US/sdk.js"></script>
+
+  <style>
+     @font-face {
+      font-family: "vag_roundedbold";
+
+      unicode-range: U+000-5FF;
+      src:
+        local('vag_roundedbold'),
+        url("assets/font/vag_rounded_bold-webfont-webfont.woff2") format("woff2"),
+        url("assets/font/vag_rounded_bold-webfont.woff") format("woff"),
+        url("assets/font/vag_rounded_bold-webfont.ttf") format("truetype");
+
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    /* @font-face {
+      font-family: "vag_roundedregular";
+      unicode-range: U+000-5FF;
+      src:
+        local('vag_roundedregular'),
+        url("./assets/font/vag_rounded_thin-webfont.woff2") format("woff2"),
+        url("./assets/font/vag_rounded_thin-webfont.woff") format("woff"),
+        url("./assets/font/vag_rounded_thin-webfont.ttf") format("truetype");
+
+      font-weight: normal;
+      font-style: normal;
+    } */
+
+    .background {
+      background-color: #17252a;
+      height: 100vh !important;
+      transition: all 1s ease-in;
+    }
+
+    .anim-typewriter {
+      animation: typewriter 1s steps(30) 500ms 1 normal both;
+    }
+
+    .dot-flashing {
+      position: relative;
+      width: 8px;
+      height: 8px;
+      border-radius: 5px;
+      background-color: #0093c1;
+      color: #0093c1;
+      animation: dotFlashing 1s infinite linear alternate;
+      animation-delay: .5s;
+    }
+
+    .dot-flashing::before,
+    .dot-flashing::after {
+      content: '';
+      display: inline-block;
+      position: absolute;
+      top: 0;
+    }
+
+    .dot-flashing::before {
+      left: -15px;
+      width: 8px;
+      height: 8px;
+      border-radius: 5px;
+      background-color: #0093c1;
+      color: #0093c1;
+      animation: dotFlashing 1s infinite alternate;
+      animation-delay: 0s;
+    }
+
+    .dot-flashing::after {
+      left: 15px;
+      width: 8px;
+      height: 8px;
+      border-radius: 5px;
+      background-color: #0093c1;
+      color: #0093c1;
+      animation: dotFlashing 1s infinite alternate;
+      animation-delay: 1s;
+    }
+
+    @keyframes dotFlashing {
+      0% {
+        background-color: #0093c1;
+      }
+
+      50%,
+      100% {
+        background-color: #ebe6ff;
+      }
+    }
+
+    .loader-anim {
+      animation: fade 500ms ease-in forwards;
+      animation-delay: 2s;
+    }
+
+    @keyframes typewriter {
+      from {
+        width: 0;
+      }
+
+      to {
+        width: 4em;
+      }
+    }
+
+    @keyframes fade {
+      0% {
+
+        opacity: 0;
+        transform: translateX(139px);
+      }
+
+      100% {
+
+        opacity: 1;
+        transform: translateX(0%);
+      }
+    }
+  </style>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body class="mat-typography">
+  <app-root></app-root>
+</body>
+</html>
